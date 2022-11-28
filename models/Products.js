@@ -1,4 +1,11 @@
-let products = [];
+let products = [
+    {
+        id: "1",
+        "slug": "product-1",
+        "name": "iPhone 11",
+    },
+];
+
 
 
 const all = (req, res) => {
