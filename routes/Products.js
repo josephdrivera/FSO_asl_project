@@ -1,6 +1,8 @@
+//use express
 const express = require('express')
+const app = express()
 const router = express.Router()
-const productCtrl = require('../controllers/Products')
+const productCtrl = require('../controllers/products')
 
 router.get('/', productCtrl.index)
 router.get('/new', productCtrl.form)

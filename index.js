@@ -6,7 +6,7 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
 const productRouter = require('./routes/products')
 //use twig
-app.set('views', __dirname + '/templates/views')
+app.set('views', __dirname + '/templates')
 app.set('view engine', 'twig')
 
 app.get('/', (req, res) => {
