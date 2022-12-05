@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ASL Project</title>
+    <title>ASL Project - {% block title %}Home{% endblock %}</title>
 </head>
 <body>
-    <h1>ASL Project</h1>
+    {% include '../partials/_header.twig' %}
+    {% block main_content %}
+    {% endblock %}
+    {% include '../partials/_footer.twig' %}
 </body>
 </html>

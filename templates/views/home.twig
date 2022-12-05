@@ -1,14 +1,14 @@
-{% extends "layouts/base.twig" %}
+{% extends "../layouts/base.twig" %}
 
 {% block main_content %}
+    <p>This content is coming from templates/views/home.twig</p>
+{% endblock %}
 
-    <ul>
-    {% for user in users %}
-        <li>
-            <label>name:</label> {{ user.name }}
-        </li>
-    {% endblock %}
-    </ul>
+{% block scripts %}
+    <p>Scripts are loaded</p>
+    <script>
+        alert('Hello World!');
+    </script>
+{% endblock %}
 
-
-<p>The is coming from template/view/base.twig</p>
+{% block title %}Home View{% endblock %}
