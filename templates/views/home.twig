@@ -1,4 +1,6 @@
-<h1> Hello {{ name }} </h1>
+{% extends "layouts/base.twig" %}
+
+{% block main_content %}
 
     <ul>
     {% for user in users %}
@@ -7,3 +9,6 @@
         </li>
     {% endblock %}
     </ul>
+
+
+<p>The is coming from template/view/base.twig</p>
