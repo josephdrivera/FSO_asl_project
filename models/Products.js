@@ -29,5 +29,6 @@ const remove = (id) => {
     return products;
 }
 
+
 module.exports = { all, find, update, remove };
 
