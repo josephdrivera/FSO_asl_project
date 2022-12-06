@@ -1,29 +1,26 @@
-const express = require('express');
-const app = express();
-
-
-//GET / HTTP/1.1
+//use express
+const bodyParser = require('body-parser')
+const express = require('express')
+const app = express()
+//use body-parser
+app.use(bodyParser.urlencoded({ extended: false }))
+const productRouter = require('./routes/products')
+//use twig
+app.set('views', __dirname + '/templates')
+app.set('view engine', 'twig')
 
 app.get('/', (req, res) => {
-    res.send('Home Page! GET route..');
-});
-
-//POST / HTTP/1.1
-app.post('/', (req, res) => {
-    res.send('Home Page! POST route...');
-});
-
-// GET /products/683-nike-large-white-shoe HTTP/1.1
-
-app.get('/products/:productName', (req, res) => {
-    res.send('Product Product Name:' + req.params.productName);
-});
-
-app.get('/products/productId-:productName', (req, res) => {
-    res.send('Product Product Name:' + req.params.productName + ' Product Id:' + req.params.productId);
-});
+    res.render('home', {
+        name: 'World!', 'users': [
+            { name: 'Joseph Rivera', email: 'josephdrivera0431@gmail.com' },
+            { name: 'Ana Rivera', email: 'anarivera@gmail.com' },
+            { name: 'kiki Rivera', email: 'kikirivera01@gmail.com' }
+        ]
+    })
+})
 
 
-app.listen(3000, () => {
-    console.log('Listening on port 3000');
-});
+app.use('/products', productRouter)
+
+
+app.listen(3000)
