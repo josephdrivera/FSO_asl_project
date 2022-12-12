@@ -1,0 +1,13 @@
+{% extends "../../layouts/base.twig" %}
+
+    {% block main_content %}
+        <h2>All Variants:</h2>
+        {% for variant in variants %}
+            <li>
+                {{variant.title}} - ${{variant.price}} ---
+                <a href="/variants/{{variant.id}}">Edit</a>
+                <a href="/variants/{{variant.id}}/delete">Delete</a>
+            </li>
+        {% endfor %}
+        <a href="/variants/new">Create Variant</a>
+    {% endblock %}
