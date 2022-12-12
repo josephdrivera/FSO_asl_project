@@ -1,26 +1,21 @@
-//use express
-const bodyParser = require('body-parser')
-const express = require('express')
-const app = express()
-//use body-parser
-app.use(bodyParser.urlencoded({ extended: false }))
-const productRouter = require('./routes/products')
-//use twig
-app.set('views', __dirname + '/templates')
-app.set('view engine', 'twig')
+const express = require("express");
+const bodyParser = require("body-parser");
+const productRouter = require("./routes/Products");
+const variantsRouter = require("./routes/Variants");
+const imagesRouter = require("./routes/Images");
+const app = express();
 
-app.get('/', (req, res) => {
-    res.render('home', {
-        name: 'World!', 'users': [
-            { name: 'Joseph Rivera', email: 'josephdrivera0431@gmail.com' },
-            { name: 'Ana Rivera', email: 'anarivera@gmail.com' },
-            { name: 'kiki Rivera', email: 'kikirivera01@gmail.com' }
-        ]
-    })
-})
+app.use(bodyParser.urlencoded({ extended: false }));
 
+app.set("views", __dirname + "/templates/views");
+app.set("view engine", "twig");
 
-app.use('/products', productRouter)
+app.get("/", (req, res) => {
+    res.render("home");
+});
 
+app.use("/products", productRouter);
+app.use("/variants", variantsRouter);
+app.use("/images", imagesRouter);
 
-app.listen(3000)
+app.listen(3000);
