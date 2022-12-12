@@ -10,4 +10,4 @@
 ## create a new DEV Branch Call: assignments/restful
 
 Created a branch called DEV
-`
+created a branch called assignments/sequelize-orm
