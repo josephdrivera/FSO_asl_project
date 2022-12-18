@@ -24,16 +24,20 @@ const show = async (req, res) => {
     //res.json(product);
 };
 
-const create = async (req, res) => {
+const create = async (req, res, next) => {
     const image = await Image.create(req.body);
+    req.imageId = image.id;
+    next();
     res.redirect("/images/" + image.id);
     //res.json(product);
 };
 
-const update = async (req, res) => {
+const update = async (req, res, next) => {
     const image = await Image.update(req.body, {
         where: { id: req.params.id },
     });
+    req.imageId = req.params.id;
+    next();
     res.redirect("/images/" + req.params.id);
     //res.json(image);
 };

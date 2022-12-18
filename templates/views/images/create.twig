@@ -1,5 +1,5 @@
-{% extends "../../layouts/base.twig" %}
+{% extends "/templates/layouts/base.twig" %}
 
     {% block main_content %}
-        {% include "images/_form.twig" with {'variants': variants} %}
+        {% include "/templates/views/images/_form.twig" with {'variants': variants} %}
     {% endblock %}

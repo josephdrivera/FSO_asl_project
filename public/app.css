@@ -46,11 +46,11 @@ header nav {
 }
 
 .nav-link a:hover {
-  color: #B2ABBF;
+  color: #fab300;
 }
 
 .nav-link a:active {
-  color: #323232;
+  color: #f7a306;
 }
 
 h2 {
@@ -59,7 +59,7 @@ h2 {
 }
 
 .storefront {
-  color: #BAA7B0;
+  color: #baa8a7;
   text-align: center;
   text-shadow: 2px 2px #323232;
 }

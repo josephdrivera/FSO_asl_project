@@ -1,6 +1,6 @@
 <form 
     method='POST' 
-    action="/images/{% if image.id %}{{image.id}}{% endif %}"
+    action="/templates/views/images{% if image.id %}{{image.id}}{% endif %}"
     enctype='multipart/form-data'
     >
     {% if image.id %}
