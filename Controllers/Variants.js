@@ -1,45 +1,47 @@
-const { Product } = require("../models");
+const { Variant, Product } = require("../models");
 
 const index = async (req, res) => {
-    const products = await Product.findAll();
-    res.render("products/index", { products });
-    //res.json(products);
+    const variants = await Variant.findAll();
+    res.render("variants/index", { variants });
+    //res.json(variants);
 };
 
 const form = async (req, res) => {
+    const products = await Product.findAll();
     if (req.params.id) {
-        const product = await Product.findByPk(req.params.id);
-        res.render("products/edit", { product });
+        const variant = await Variant.findByPk(req.params.id);
+        res.render("variants/edit", { variant, products });
     } else {
-        res.render("products/create");
+        res.render("variants/create", { products });
     }
-    //res.send("Product.form");
+    //res.send("Variant.form");
 };
 
 const show = async (req, res) => {
-    const product = await Product.findByPk(req.params.id);
-    res.render("products/show", { product });
-    //res.json(product);
+    const variant = await Variant.findByPk(req.params.id);
+    const product = await variant.getProduct();
+    res.render("variants/show", { variant, product });
+    //res.json(variant);
 };
 
 const create = async (req, res) => {
-    const product = await Product.create(req.body);
-    res.redirect("/products/" + product.id);
-    //res.json(product);
+    const variant = await Variant.create(req.body);
+    res.redirect("/variants/" + variant.id);
+    //res.json(variant);
 };
 
 const update = async (req, res) => {
-    const product = await Product.update(req.body, {
+    const variant = await Variant.update(req.body, {
         where: { id: req.params.id },
     });
-    res.redirect("/products/" + req.params.id);
-    //res.json(product);
+    res.redirect("/variants/" + req.params.id);
+    //res.json(variant);
 };
 
 const remove = async (req, res) => {
-    const products = await Product.destroy({ where: { id: req.params.id } });
-    res.redirect("/products/");
-    //res.json(products);
+    const variants = await Variant.destroy({ where: { id: req.params.id } });
+    res.redirect("/variants/");
+    //res.json(variants);
 };
 
 module.exports = { index, form, show, create, update, remove };
