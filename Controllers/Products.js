@@ -1,8 +1,8 @@
-const { products } = require("../models");
+const { Product } = require("../models");
 
 const index = async (req, res) => {
     const products = await Product.findAll();
-    res.render("product/index", { products });
+    res.render("products/index", { products });
     //res.json(products);
 };
 

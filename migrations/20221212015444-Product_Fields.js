@@ -2,7 +2,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    // Add the new fields to the Products table
+
     await queryInterface.addColumn("Products", "slug", {
       type: Sequelize.STRING,
     }),
@@ -15,7 +15,8 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    // Remove the new fields from the Products table
+
+
     await queryInterface.removeColumn("Products", "slug"),
       queryInterface.removeColumn("Products", "description"),
       queryInterface.removeColumn("Products", "is_published");
